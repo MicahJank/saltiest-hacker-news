@@ -8,6 +8,11 @@ module.exports = {
       filename: './data/templateDB.db3' // <-- Replace
     },
     useNullAsDefault: true,
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run('PRAGMA foreign_keys = ON', done);
+      },
+    },
     migrations: {
       directory: './data/migrations',
     },
