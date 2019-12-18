@@ -1,16 +1,13 @@
 // Update with your config settings.
 
+require('dotenv').config();
+
 module.exports = {
 
   development: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
-    },
     migrations: {
       directory: './data/migrations',
     },
@@ -23,11 +20,6 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
-    },
     migrations: {
       directory: './data/migrations'
     },
@@ -40,11 +32,6 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
-    },
     migrations: {
       directory: './data/migrations'
     },
