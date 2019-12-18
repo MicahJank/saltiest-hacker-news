@@ -9,5 +9,8 @@ const registerRouter = require('../routes/auth/register-router.js');
 router.use('/register', registerRouter);
 router.use('/login', loginRouter);
 
+router.get('/', (req, res) => {
+    res.send('<h1>Api is up and running</h1>');
+});
 
 module.exports = router;
